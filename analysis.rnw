@@ -1,0 +1,660 @@
+\documentclass{article}
+
+\begin{document}
+
+
+\title{Extensive Rewiring of Epithelial-Stromal Coexpession Networks in Breast Cancer}
+\maketitle{}
+\begin{center}
+\authors{Eun-Yeong Oh, Stephen M Christensen, Sindhu Ghanta, Jong Cheol Jeong, Octavian Bucur, Benjamin Glass, Laleh Montaser-Kouhsari, Nicholas W Knoblauch, Nicholas Bertos,Sadiq M. I. Saleh, Benjamin Haibe-Kains, Morag Park,Andrew H Beck [abeck2@bidmc.harvard.edu]
+}
+\end{center}
+\newpage{}
+\section{Set-Up}
+<<Set-up, eval=TRUE,warning=FALSE,results='markup',tidy=TRUE>>=
+rm(list=ls())
+options(width=60)
+list.of.packages <- c("MatrixEQTL", "RcppArmadillo","sqldf","plyr","mclust","reshape2","RCurl","igraph","RedeR","SANTA","GSA","Vennerable")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+require("MatrixEQTL")
+require("RcppArmadillo")
+require("sqldf")
+require("plyr")
+require("mclust")
+require("reshape2")
+require("RCurl")
+require("igraph")
+require("RedeR")
+require("SANTA")
+require("GSA")
+require("Vennerable")
+
+run.eqtl <- function(x,name)
+{
+   res = Matrix_eQTL_main(snps=SlicedData$new(x$Str),
+                          gene=SlicedData$new(x$Epi),
+                          cvrt=SlicedData$new(),
+                          output_file_name=paste0(name,".txt"),
+                          useModel=modelLINEAR,
+                          verbose=T,
+                          output_file_name.cis=0,
+                          pvOutputThreshold=1e-3)
+   output <- read.table(paste0(name,".txt"),header=T,sep="\t")
+   output <- output[,-c(3)]
+   colnames(output) <- c("Stroma","Epi","t.stat","p.value","FDR")
+   write.table(output,file=paste0(name,".txt"),sep="\t",row.names=F,quote=F)  
+}
+@
+\section{Select Most Variant Probe and Scale Data}
+<<Select Most Variant Probe and Scale Data,eval=TRUE>>=
+## Beginning With GEO Data Files
+## Data has common gene symbols across platform from within a cancer type
+
+files=c("GSE10797_BrEpi_28_anno_common.txt","GSE10797_BrStr_28_anno_common.txt","GSE14548_BrEpi_9_anno_common.txt","GSE14548_BrStr_9_anno_common.txt","GSE35019_BrEpi_11_anno_common.txt","GSE35019_BrStr_11_anno_common.txt","GSE4823_NoEpi_22_anno_common.txt","GSE4823_NoStr_22_anno_common.txt","GSE5847_BrEpi_34_anno_common.txt","GSE5847_BrStr_34_anno_common.txt")
+dataDir= 'https://raw.githubusercontent.com/becklab/esnet/master/'
+files.dir=paste(dataDir,files,sep="/")
+
+
+## We will summarize probes, by taking the probe with the most variance
+## Then we will scale and save the data
+for(i in 1:length(files)){
+ my_data <- getURL(files.dir[i],ssl.verifypeer=FALSE)
+ test <- read.csv(textConnection(my_data), sep='\t',head=T)
+ ntest <- test[,-(1)]
+ dfl <- split(ntest,test$Gene.Symbol)
+   
+ var.probe <- sapply(dfl,function(x)apply(x,1,function(y)var(y)),simplify=F)
+   
+ max.probes <- sapply(var.probe,which.max)
+   
+ ndfl <- list()
+ for(j in 1:length(max.probes)){
+   ndfl[[j]]<-dfl[[j]][max.probes[j],]
+ }
+ nndfl <- do.call(what="rbind",ndfl)
+ nndfl <- t(scale(t(nndfl)))
+ nndfl <- data.frame(gene=names(dfl),nndfl)
+ write.table(nndfl,file=paste0(files[i],"_SCALED.txt"),col.names=T,row.names=F,quote=F,sep="\t")
+ cat("File ",i," of ",length(files),"\n")
+}
+
+@
+\section{Combine Data Sets}
+<<Combine Data Sets,eval=TRUE>>=
+epi.stroma.files <- c("GSE10797_BrEpi_28_anno_common.txt_SCALED.txt","GSE10797_BrStr_28_anno_common.txt_SCALED.txt","GSE14548_BrEpi_9_anno_common.txt_SCALED.txt","GSE14548_BrStr_9_anno_common.txt_SCALED.txt","GSE35019_BrEpi_11_anno_common.txt_SCALED.txt","GSE35019_BrStr_11_anno_common.txt_SCALED.txt","GSE4823_NoEpi_22_anno_common.txt_SCALED.txt","GSE4823_NoStr_22_anno_common.txt_SCALED.txt","GSE5847_BrEpi_34_anno_common.txt_SCALED.txt","GSE5847_BrStr_34_anno_common.txt_SCALED.txt")
+
+all.epi.stroma.mats <- lapply(epi.stroma.files,FUN=read.table,header=T,sep="\t",check.names=F,row.names=1)
+good.rows <- Reduce(intersect,x=lapply(all.epi.stroma.mats,FUN=rownames))
+all.epi.stroma.mats <- lapply(all.epi.stroma.mats,'[',good.rows,)
+grps <- gsub(".+GSE[0-9]+_([A-Za-z]+)_.+","\\1",epi.stroma.files)
+epi.stroma.num <- gsub(".+GSE[0-9]+_.+_([0-9]+)_.+","\\1",epi.stroma.files)
+egrps <- gsub("(.+)[ES].*","\\1",grps)
+epi.str <- gsub(".+([ES]..).*","\\1",grps)
+Epis <- epi.stroma.files[epi.str=="Epi"]
+Strs <- epi.stroma.files[epi.str=="Str"]
+Epi.grps <- paste0(egrps,epi.stroma.num)[epi.str=="Epi"]
+negrps <- egrps[epi.str=="Epi"]
+nepi.stroma.num <- epi.stroma.num[epi.str=="Epi"]
+newcols <- unlist(mapply(function(x,y,z)paste(x,y,z,sep="_"),lapply(all.epi.stroma.mats,colnames),grps,epi.stroma.num))
+bigmat <- do.call("cbind",all.epi.stroma.mats)
+colnames(bigmat)<- newcols
+new.egrps <- gsub(".+((No)|(Br)|(Dcis)).+","\\1",newcols)
+allmat.by.ctype <- lapply(split(data.frame(t(bigmat)),new.egrps),t)
+allmat.by.ctype.by.ES <- lapply(allmat.by.ctype,function(x){
+ EpiStr <- gsub(".+((Epi)|(Str)).+","\\1",colnames(x))
+ tsplit <- split(data.frame(t(x)),EpiStr)
+ return(lapply(tsplit,t))
+ })
+
+t.ER <- allmat.by.ctype.by.ES$Br
+ERclass <- Mclust(t.ER$Epi["ESR1",],G=2)
+boxplot(t.ER$Epi["ESR1",]~ERclass$class,names=c("ER-neg","ER-pos"),ylab="ESR1 mRNA")
+# Check ER correlation with SITE
+sites=unlist(lapply(strsplit(colnames(t.ER$Epi),"_"),function(xx)(xx[4])))
+t1=table(ERclass$class,sites)
+t1
+chisq.test(t1) # p =0.34 , No significant association of site with ER status
+plot(t.ER$Epi["ESR1",],col=sites,pch=ERclass$class,main="No Significant Association of Dataset with ESR1 Status (P=0.34)",ylab="ESR1 mRNA")
+
+
+BrEpi.posneg <- lapply(split(data.frame(t(t.ER$Epi)),ERclass$classification),t)
+BrStr.posneg <- lapply(split(data.frame(t(t.ER$Str)),ERclass$classification),t)
+allmat.by.ctype.by.ES$BrP <- list(Epi=BrEpi.posneg[["2"]],Str=BrStr.posneg[["2"]])
+allmat.by.ctype.by.ES$BrN <- list(Epi=BrEpi.posneg[["1"]],Str=BrStr.posneg[["1"]])
+allmat.by.ctype.by.ES$Br <- NULL
+
+@
+\section{Run Matrix EQTL on Merged Datasts for IBC and Single Dataset for Normal}
+<<Run Matrix EQTL, eval=TRUE>>=
+run.eqtl(allmat.by.ctype.by.ES$BrP,"ER_Positive_ES")
+run.eqtl(allmat.by.ctype.by.ES$BrN,"ER_Negative_ES")
+run.eqtl(allmat.by.ctype.by.ES$No,"Normal_22_ES")
+
+@
+
+\section{Computing Descriptive Stats on Networks}
+<<Computing Descriptive Stats on Networks>>=
+## Degree Calculations
+
+norm=read.table("Normal_22_ES.txt",header=T,sep="\t")
+BrP=read.table("ER_Positive_ES.txt",header=T,sep="\t")
+BrN=read.table("ER_Negative_ES.txt",header=T,sep="\t")
+tt=10000
+norm=norm[1:tt,]
+BrP=BrP[1:tt,]
+BrN=BrN[1:tt,]
+
+ng=graph.data.frame(norm,directed=T)
+brpg=graph.data.frame(BrP,directed=T)
+brng=graph.data.frame(BrN,directed=T)
+
+ng <- set.edge.attribute(ng,"weights",value=1/abs(E(ng)$t.stat))
+brpg <- set.edge.attribute(brpg,"weights",value=1/abs(E(brpg)$t.stat))
+brng <- set.edge.attribute(brng,"weights",value=1/abs(E(brng)$t.stat))
+
+#Degree Calculations
+Genes=c(as.character(norm[,1]),as.character(norm[,2]),
+  as.character(BrP[,1]),as.character(BrP[,2]),
+  as.character(BrN[,1]),as.character(BrN[,2]))
+Genes=unique(Genes)
+Genecomp=matrix(0,0,nrow=length(Genes),ncol=11)
+row.names(Genecomp)=Genes
+normdegree=igraph::degree(graph=ng,mode=c("all"))
+normin=igraph::degree(ng,mode=c("in"))
+normout=igraph::degree(ng,mode=c("out"))
+BrPdegree=igraph::degree(brpg,mode=c("all"))
+posin=igraph::degree(brpg,mode=c("in"))
+posout=igraph::degree(brpg,mode=c("out"))
+negativedegree=igraph::degree(brng,mode=c("all"))
+negin=igraph::degree(brng,mode=c("in"))
+negout=igraph::degree(brng,mode=c("out"))
+row=1
+for(i in row.names(Genecomp)){
+ if (as.character(i)%in%norm[,1]|as.character(i)%in%norm[,2]){
+   Genecomp[row,1]=normdegree[as.character(i)]
+ if (as.character(i)%in%norm[,1])
+   Genecomp[row,2]=normout[as.character(i)]
+ if (as.character(i)%in%norm[,2])
+   Genecomp[row,3]=normin[as.character(i)]
+}
+ if (as.character(i)%in%BrP[,1]|as.character(i)%in%BrP[,2]){
+   Genecomp[row,4]=BrPdegree[as.character(i)]
+ if (as.character(i)%in%BrP[,1])
+   Genecomp[row,5]=posout[as.character(i)]
+ if (as.character(i)%in%BrP[,2])
+   Genecomp[row,6]=posin[as.character(i)]
+}
+Genecomp[row,7]=Genecomp[row,4]-Genecomp[row,1]
+if (as.character(i)%in%BrN[,1]|as.character(i)%in%BrN[,2]){
+Genecomp[row,8]=negativedegree[as.character(i)]
+if (as.character(i)%in%BrN[,1])
+   Genecomp[row,9]=negout[as.character(i)]
+if (as.character(i)%in%BrN[,2])
+   Genecomp[row,10]=negin[as.character(i)]
+}
+Genecomp[row,11]=Genecomp[row,8]-Genecomp[row,1]
+row=row+1
+print(row)
+}
+colnames(Genecomp)=c("NormDegree","StromaNorm","EpiNorm","BrPDegree","StromaBrP","EpiBrP",
+               "BrPminusNormDegree","BrNDegree","StromaBrN","EpiBrN","BrNminusNormDegree")
+Genecomp=Genecomp[,-c(7,11)]
+ 
+# Normal Self-loops
+norm.self=rep(NA,length(Genes))
+comb=paste(norm[,1],norm[,2],sep=".")
+
+gg.comb=paste(Genes,Genes,sep=".")
+for(i in 1:length(gg.comb)){
+ norm.self[i]=1*(is.element(gg.comb[i],comb))
+}
+table(norm.self)
+
+# ERP Self-loops
+erp.self=rep(NA,length(Genes))
+comb=paste(BrP[,1],BrP[,2],sep=".")
+gg.comb=paste(Genes,Genes,sep=".")
+for(i in 1:length(gg.comb)){
+ erp.self[i]=1*(is.element(gg.comb[i],comb))
+}
+table(erp.self)
+
+# ERN Self-loops
+ern.self=rep(NA,length(Genes))
+comb=paste(BrN[,1],BrN[,2],sep=".")
+gg.comb=paste(Genes,Genes,sep=".")
+for(i in 1:length(gg.comb)){
+ ern.self[i]=1*(is.element(gg.comb[i],comb))
+}
+table(ern.self)
+Genecomp=cbind(Genecomp,norm.self,erp.self,ern.self)
+# head(Genecomp[order(Genecomp[,"BrPDegree"],decreasing=T),])
+# write.table(Genecomp,"EpiStrDegreeMatrix.txt",col.names=NA,sep="\t",row.names=T)
+@
+\section{ Tables 1 and 2 }
+<<Tables 1 and 2>>=
+# Table 1
+# Most significant normal breast epi-stroma interactions
+head(norm)
+# Most significant ER-positive IBC epi-stroma interactions
+head(BrP)
+# Most significant ER-negative IBC epi-stroma interactions
+head(BrN)
+# Table 2
+# Most highly connected nodes in normal breast
+head(Genecomp[order(Genecomp[,"NormDegree"],decreasing=T),])
+# Most highly connected nodes in ER-positive IBC
+head(Genecomp[order(Genecomp[,"BrPDegree"],decreasing=T),])
+# Most highly connected nodes in ER-negative IBC
+head(Genecomp[order(Genecomp[,"BrNDegree"],decreasing=T),])
+@
+
+\section{Figure 2 -- Network Barplots,eval = TRUE}
+<<Figure 2>>=
+# A. Number of Significant Epithelial-Stromal Co-expression Interactions
+barplot(c(sum(norm[,"FDR"]<0.05),sum(BrP[,"FDR"]<0.05),sum(BrN[,"FDR"]<0.05)),names=c("Normal","ER-pos IBC","ER-neg IBC"),ylab="Epi-Stroma Interactions with FDR < 5",ylim=c(0,2500),main="2A: Number of Significant Epithelial-Stromal Co-expression Interactions")
+
+norm1.sl=apply(norm[norm[,"FDR"]<0.05,],1,function(x)(1*(x[1]==x[2])))
+tno=table(norm1.sl)
+tno[2]/sum(tno) * 100
+
+brp1.sl=apply(BrP[BrP[,"FDR"]<0.05,],1,function(x)(1*(x[1]==x[2])))
+tp=table(brp1.sl)
+tp[2]/sum(tp) * 100
+
+brn1.sl=apply(BrN[BrN[,"FDR"]<0.05,],1,function(x)(1*(x[1]==x[2])))
+tn=table(brn1.sl)
+tn[2]/sum(tn) * 100
+
+# B. Proportion of Self-Loops Among Significant Interactions
+barplot(c(tno[2]/sum(tno), tn[2]/sum(tn),tp[2]/sum(tp)),beside=T,names=c("Normal","ER-neg IBC","ER-pos IBC"),ylab="Proportion of Self-loops",ylim=c(0,0.25),main="2B: Proportion of Self-Loops Among Significant Interactions")   
+
+# C. Proportion of Self Loops and Coexpression Interaction Significance in ER positive IBC
+brp1.sl=apply(BrP,1,function(x)(1*(x[1]==x[2])))
+fdr=BrP[,"FDR"]
+p1=sum(brp1.sl[fdr<1e-4])/sum(fdr<1e-4)
+p2=sum(brp1.sl[fdr>1e-4 & fdr<1e-3])/sum(fdr>1e-4 & fdr<1e-3)
+p3=sum(brp1.sl[fdr>1e-3 & fdr<1e-2])/sum(fdr>1e-3 & fdr<1e-2)  
+p4=sum(brp1.sl[fdr>1e-2 & fdr<1e-1])/sum(fdr>1e-2 & fdr<1e-1)  
+p5=sum(brp1.sl[fdr>1e-1])/sum(fdr>1e-1)
+barplot(c(p1,p2,p3,p4,p5),main="2C: Proportion Self-Loops in ER-positive IBC",names=c("-log(fdr) > 4", "4 > -log(FDR) > 3","3 > -log(FDR) > 2","2 > -log(FDR) > 1","1 > -log(FDR)"),cex.names=.75)
+
+# D. Proportion of Self Loops and Coexpression Interaction Significance in ER negative IBC
+brn1.sl=apply(BrN,1,function(x)(1*(x[1]==x[2])))
+fdr=BrN[,"FDR"]
+p1=sum(brn1.sl[fdr<1e-4])/sum(fdr<1e-4)
+p2=sum(brn1.sl[fdr>1e-4 & fdr<1e-3])/sum(fdr>1e-4 & fdr<1e-3)
+p3=sum(brn1.sl[fdr>1e-3 & fdr<1e-2])/sum(fdr>1e-3 & fdr<1e-2)  
+p4=sum(brn1.sl[fdr>1e-2 & fdr<1e-1])/sum(fdr>1e-2 & fdr<1e-1)  
+p5=sum(brn1.sl[fdr>1e-1])/sum(fdr>1e-1)
+barplot(c(p1,p2,p3,p4,p5),main="2D: Proportion Self-Loops in ER-negative IBC", ,names=c("-log(fdr) > 4", "4 > -log(FDR) > 3","3 > -log(FDR) > 2","2 > -log(FDR) > 1","1 > -log(FDR)"),cex.names=.75)
+
+@
+\section{RedeR Visualization, Figure 3}
+<<RedeR Visualization>>=
+rdp <- RedPort()
+calld(rdp)
+nodeA=Genecomp
+
+ng=graph.data.frame(norm)
+brpg=graph.data.frame(BrP)
+brng=graph.data.frame(BrN)
+
+ng <- set.edge.attribute(ng,"weight",value=1/abs(E(ng)$t.stat))
+brpg <- set.edge.attribute(brpg,"weight",value=1/abs(E(brpg)$t.stat))
+brng <- set.edge.attribute(brng,"weight",value=1/abs(E(brng)$t.stat))
+
+sl=rownames(nodeA)[nodeA[,"norm.self"]==1]
+ng <- set.vertex.attribute(ng,"degree",value=igraph::degree(ng))
+ng <- set.vertex.attribute(ng,"selfloop",value=1*(is.element(V(ng)$name,sl)))
+ng1=subgraph(ng,V(ng)$degree>5)
+
+sl=rownames(nodeA)[nodeA[,"erp.self"]==1]
+brpg <- set.vertex.attribute(brpg,"degree",value=igraph::degree(brpg))
+brpg <- set.vertex.attribute(brpg,"selfloop",value=1*(is.element(V(brpg)$name,sl)))
+brpg1=subgraph(brpg,V(brpg)$degree>5)
+brpg1
+
+sl=rownames(nodeA)[nodeA[,"ern.self"]==1]
+brng <- set.vertex.attribute(brng,"degree",value=igraph::degree(brng))
+brng <- set.vertex.attribute(brng,"selfloop",value=1*(is.element(V(brng)$name,sl)))
+brng1=subgraph(brng,V(brng)$degree>5)
+
+sum(V(ng1)$selfloop==1)/length(V(ng1)$selfloop)
+sum(V(brpg1)$selfloop==1)/length(V(brpg1)$selfloop)
+sum(V(brng1)$selfloop==1)/length(V(brng1)$selfloop)
+
+sum(V(ng)$selfloop==1)/length(V(ng)$selfloop)
+sum(V(brpg)$selfloop==1)/length(V(brpg)$selfloop)
+sum(V(brng)$selfloop==1)/length(V(brng)$selfloop)
+ 
+wilcox.test(V(ng)$degree~V(ng)$selfloop)
+wilcox.test(V(brpg)$degree~V(brpg)$selfloop)
+wilcox.test(V(brng)$degree~V(brng)$selfloop)
+
+# Plot Normal network
+for(i in c("ng1","brpg1","brng1")){
+sg=eval(parse(text=i))
+cols=rep(rgb(t(col2rgb("orange",alpha=0.5)),maxColorValue=255),length(E(sg)$t.stat))
+cols[E(sg)$t.stat<=0]=rgb(t(col2rgb("slateblue",alpha=0.5)),maxColorValue=255)
+resetd(rdp)
+calld(rdp)
+sg <- att.setv(sg, from="selfloop", to="nodeColor", cols=c("grey","deeppink"))
+sg <- att.setv(sg, from="degree", to="nodeSize",isrev=F,nquant=10,xlim=c(1,50,0))
+sg <- set.edge.attribute(graph=sg,name="color",value=cols)
+sg <- att.sete(sg,from="color",to="edgeColor",cols=c("slateblue","orange"))
+sg <- set.edge.attribute(sg,"arrowType",value=1)
+sg <- set.vertex.attribute(sg,"nodeFontSize", value=14)
+sg <- set.edge.attribute(sg,"arrowDirection",value=rep(1,length(E(sg)$t.stat)))
+
+addGraph(rdp,sg)
+relax(rdp)
+Sys.sleep(10)
+
+d1=dist(get.adjacency(sg,attr="weight"))
+hc <- hclust(d1)
+nesthc(rdp,hc, cutlevel=3, nmemb=5,labels=V(sg)$nodeAlias)
+relax(rdp)
+Sys.sleep(10)
+}
+
+@
+
+\section{SANTA Network Analysis}
+This section shows how we run the SANTA analysis for enrichment of genesets. As an example, we only use 3 prognostic gene signatures in this Sweave file, for brevity and since this can take hours to run. The p-values we generate here are raw p-values. For the full analysis, we repeated this for all the groups of genesets, merged the results, and adjusted the p values for multiple hypotheses using the p.adjust function with the "fdr" method.
+
+<<SANTA Network Analysis, eval=TRUE>>=
+# Example SANTA analysis with 3 Prognostic Signatures
+
+if(1){
+   f1= 'https://raw.githubusercontent.com/becklab/esnet/master/PrognosticSignatures.txt'
+   my_data <- getURL(f1,ssl.verifypeer=FALSE)
+   sigs=read.table(textConnection(my_data),row.names=1,sep="\t",header=T)
+   sigs=sigs[,c("Carter.2006..CIN.70.","Rody.2009..interferon.", "Sotiriou.2006..GGI." )]
+   genesetNames=colnames(sigs)
+   genesets=list()
+   for(i in 1:ncol(sigs)){
+      genesets[[i]]=rownames(sigs)[sigs[,i]=="x"]
+   }
+}
+
+#Analysis with Cell Type Specific Signatures
+if(0){
+   f1= 'https://raw.githubusercontent.com/becklab/epistromanetwork/master/GeneSets/CellTypeSpecificSignatures.txt'
+   my_data <- getURL(f1,ssl.verifypeer=FALSE)
+   sigs=read.table(textConnection(my_data),sep="\t",header=T)
+   genesetNames=colnames(sigs)
+   genesets=list()
+for(i in 1:ncol(sigs)){
+   genesets[[i]]=unique(as.character(sigs[,i]))
+   genesets[[i]]=genesets[[i]][genesets[[i]]!=""]
+}
+}
+
+# Analysis with MSIGDB genesets
+if(0){
+   file="c5.bp.v4.0.symbols.gmt"
+   #file="c2.cp.kegg.v4.0.symbols.gmt"
+   geneset.obj<- GSA.read.gmt(file)
+   genesets=geneset.obj[[1]]
+   genesetNames=unlist(geneset.obj[[2]])
+}
+
+## Perform SANTA on each geneset
+norm.ps=rep(NA,length(genesetNames))
+brp.ps=rep(NA,length(genesetNames))
+brn.ps=rep(NA,length(genesetNames))
+
+ng=graph.data.frame(norm)
+brpg=graph.data.frame(BrP)
+brng=graph.data.frame(BrN)
+
+ng <- set.edge.attribute(ng,"weights",value=1/abs(E(ng)$t.stat))
+brpg <- set.edge.attribute(brpg,"weights",value=1/abs(E(brpg)$t.stat))
+brng <- set.edge.attribute(brng,"weights",value=1/abs(E(brng)$t.stat))
+
+nperms=25
+
+# Normal 
+for(i in 1:length(genesetNames)){
+   vw=1*(is.element(V(ng)$name,unlist(genesets[[i]])))
+   if(sum(vw)){
+      ng <- set.vertex.attribute(ng,"pheno",value=vw)
+      norm.ps[i]=Knet(ng, nperm=nperms, edge.attr="weights", vertex.attr="pheno",verbose=F,only.pval=T)
+   }else{
+      norm.ps[i]=1
+   }
+   cat("Iteration ",i," of ",length(genesetNames),"\n")
+}
+normPs=matrix(norm.ps,ncol=1,dimnames=list(genesetNames,"Norm"))
+head(normPs[order(normPs),])
+
+# ER+ IBC
+for(i in 1:length(genesetNames)){
+   vw=1*(is.element(V(brpg)$name,unlist(genesets[[i]])))
+      if(sum(vw)){
+         brpg <- set.vertex.attribute(brpg,"pheno",value=vw)
+         brp.ps[i]=Knet(brpg, nperm=nperms, edge.attr="weights", vertex.attr="pheno",verbose=F,only.pval=T)
+      }else{
+         brp.ps[i]=1
+      }
+      cat("Iteration ",i," of ",length(genesetNames),"\n")
+   }
+   brPs=matrix(brp.ps,ncol=1,dimnames=list(genesetNames,"ERPos"))
+   head(brPs[order(brPs),])
+
+#  ER- IBC
+   for(i in 1:length(genesetNames)){
+      vw=1*(is.element(V(brng)$name,unlist(genesets[[i]])))
+      if(sum(vw)){
+         brng <- set.vertex.attribute(brng,"pheno",value=vw)
+         brn.ps[i]=Knet(brng, nperm=nperms, edge.attr="weights", vertex.attr="pheno",verbose=F,only.pval=T)
+      }else{
+         brn.ps[i]=1
+      }
+         cat("Iteration ",i," of ",length(genesetNames),"\n")
+   }
+   brnPs=matrix(brn.ps,ncol=1,dimnames=list(genesetNames,"ERneg"))
+   head(brnPs[order(brnPs),])
+
+@
+
+\section{Figures 4 and 5, Plotting the SANTA Results}
+<<Figure 4, Analysis of SANTA Results, eval=TRUE>>=
+   f1= 'https://raw.githubusercontent.com/becklab/esnet/master/SANTAresults.txt'
+my_data <- getURL(f1,ssl.verifypeer=FALSE)
+s.co.adj=read.table(textConnection(my_data),sep="\t",row.names=1,header=T)
+type=s.co.adj[,1]
+table(type)   
+
+## Figure 4
+plot(-log10(s.co.adj[,"Normal.Breast..Epithelial.Stromal."]),-log10(s.co.adj[,"ER.positive..Epithelial.Stromal."]),xlab="Norm-ES",ylab="ER.Pos-ES",col=type, main = "4A: Functional ES Network Rewiring (ER-Pos vs. Normal)")
+abline(a=0,b=1)
+
+plot(-log10(s.co.adj[,"Normal.Breast..Epithelial.Stromal."]),-log10(s.co.adj[,"ER.negative..Epithelial.Stromal."  ]),xlab="Norm-ES",ylab="ER.Neg-ES",col=type, main = "4B: Functional ES Network Rewiring (ER-Neg vs. Normal)")
+abline(a=0,b=1)
+
+plot(-log10(s.co.adj[,"ER.positive..Epithelial.Stromal."]),-log10(s.co.adj[,"ER.negative..Epithelial.Stromal."]),xlab="ER.Pos-ES",ylab="ER.Neg-ES",col=type,main = "4C: Functional ES Network Rewiring (ER-Neg vs. ER-Pos)")
+abline(a=0,b=1)
+
+## Figure 5   
+plot(-log10(s.co.adj[,"Normal.Breast..Epithelial.Stromal."]),-log10(s.co.adj[,"Normal.Breast..Epithelial.Epithelial."]),xlab="Norm-ES",ylab="Norm-EE",col=type, main = "5A: Normal Breast - Epi-Epi vs. Epi-Stroma")
+abline(a=0,b=1)
+
+plot(-log10(s.co.adj[,"ER.positive..Epithelial.Stromal." ]),-log10(s.co.adj[,"ER.positive..Epithelial.Epithelial."  ]),xlab="ER.Pos-ES",ylab="ER.Pos-EE",col=type, main = "5B: ER-pos IBC - Epi-Epi vs. Epi-Stroma")
+abline(a=0,b=1)
+
+plot(-log10(s.co.adj[,"ER.negative..Epithelial.Stromal." ]),-log10(s.co.adj[,"ER.negative..Epithelial.Epithelial."  ]),xlab="ER.Neg-ES",ylab="ER.Neg-EE",col=type, main = "5C: ER-neg IBC - Epi-Epi vs. Epi-Stroma")
+abline(a=0,b=1)
+
+# Venn Diagrams
+sp=row.names(s.co.adj)[s.co.adj[,"ER.positive..Epithelial.Stromal."]<0.05]
+sn=row.names(s.co.adj)[s.co.adj[,"ER.negative..Epithelial.Stromal."]<0.05]
+nn=row.names(s.co.adj)[s.co.adj[,"Normal.Breast..Epithelial.Stromal."]<0.05]
+
+sp.ee=row.names(s.co.adj)[s.co.adj[,"ER.positive..Epithelial.Epithelial."]<0.05]
+sn.ee=row.names(s.co.adj)[s.co.adj[,"ER.negative..Epithelial.Epithelial." ]<0.05]
+nn.ee=row.names(s.co.adj)[s.co.adj[,"Normal.Breast..Epithelial.Epithelial."]<0.05]
+
+# Figure 4D: Venn Diagram of Significant ES Genesets
+w=list(Norm.ES=nn,Pos.ES=sp,Neg.ES=sn)
+w <- Venn(w)
+plot(w)      
+
+# Figure 5D: Venn Digram of Significant ER-Pos ES and ER-Pos EE
+w=list(Norm.ES=nn,Norm.EE=nn.ee)
+plot(Venn(w))
+
+# Figure 5E: Venn Digram of Significant ER-Pos ES and ER-Pos EE
+w=list(Pos.ES=sp,Pos.EE=sp.ee)
+plot(Venn(w))
+
+# Figure 5F: Venn Diagram of Significant ER-Neg ES and ER-Neg EE
+w=list(Neg.ES=sn,Neg.EE=sn.ee)
+plot(Venn(w))
+
+@
+
+\section{Validation Analysis on Park Dataset}
+<<Park Validation Analysis,eval=TRUE>>=
+
+eDir= 'https://raw.githubusercontent.com/becklab/esnet/master/eset_erp_finak_ex.txt'
+aDir = 'https://raw.githubusercontent.com/becklab/esnet/master/eset_erp_finak_anno.txt'
+my_data <- getURL(eDir,ssl.verifypeer=FALSE)
+e1 <- data.matrix(read.table(textConnection(my_data),sep="\t",header=T,row.names=1))
+my_data <- getURL(aDir,ssl.verifypeer=FALSE)
+g1 <- read.table(textConnection(my_data),sep="\t",header=T,row.names=1)
+   
+type=unlist(lapply(strsplit(colnames(e1),".",fixed=T),function(x)(x[[2]])))
+table(type)
+samps=unlist(lapply(strsplit(colnames(e1),"_",fixed=T),function(x)(x[[2]])))
+
+tums.epi=e1[,type=="TE"]
+samps.epi=samps[type=="TE"]
+tums.str=e1[,type=="TS"]
+samps.str=samps[type=="TS"]
+
+dim(tums.epi)
+dim(tums.str)
+
+rownames(tums.epi)=g1[,"Gene.Symbol"]
+rownames(tums.str)=g1[,"Gene.Symbol"]
+
+brCa <- list(Epi=tums.epi,Str=tums.str)
+run.eqtl(brCa,"Park_BrCa")
+
+## NOW COMPARE RESULTS WITH RESULTS OBTAINED ON ORIGINAL ER-POSITIVE DATASET
+BrP=read.table("ER_Positive_ES.txt",header=T,sep="\t")
+BrP.park=read.table("Park_BrCa.txt",header=T,sep="\t")
+
+BrP.nn=paste(BrP[,1],BrP[,2],sep=".")
+BrP.park.nn=paste(BrP.park[,1],BrP.park[,2],sep=".")
+
+BrP=cbind(BrP.nn,BrP)
+BrP.park=cbind(BrP.park.nn,BrP.park)
+brc.c=merge(BrP,BrP.park,by.x=1,by.y=1)
+
+t1=table(sign(brc.c[,"t.stat.x"]),sign(brc.c[,"t.stat.y"]))
+t1
+sum(t1[1,1],t1[2,2])/sum(t1)
+sum(t1[1,1],t1[2,2])
+sum(t1)
+cs1=chisq.test(t1)
+cs1$stdres
+cs1
+# 1142 edges with raw p value <1e-3 in both
+# 981 with concordant direction!
+# 86% concordance
+cor.test(brc.c[,"t.stat.x"],brc.c[,"t.stat.y"],method="sp")
+
+plot(brc.c[,"t.stat.x"],brc.c[,"t.stat.y"],xlab="T-Stat Meta-Dataset, ER-Pos IBC",ylab="T-stat McGill Dataset, ER-Pos IBC",main="Epi-Stroma Coexpression T-Statistics, 981/1142 (86%) significant edges with concordant direction, Cor = 0.44",cex.main=0.7)
+
+park.sl=apply(BrP.park[1:10000,],1,function(x)(1*(x[2]==x[3])))
+table(park.sl)
+sum(park.sl==1)/length(park.sl) #4% self-loops
+park.sl.name=as.character(BrP.park[1:10000,2][park.sl==1])
+park.sl.name
+   
+fdr=BrP.park[1:10000,"FDR"]
+p1=sum(park.sl[fdr<1e-5])/sum(fdr<1e-5)
+p2=sum(park.sl[fdr>1e-5 & fdr<1e-3])/sum(fdr>1e-5 & fdr<1e-3) 
+p3=sum(park.sl[fdr>1e-3])/sum(fdr>1e-3)
+
+par(las=1)
+barplot(c(p1,p2,p3),ylab="Proportion of Self-loops",
+  ,names=c("-log(fdr) > 5","5 > -log(FDR) > 3","3 > -log(FDR)"),ylim=c(0,0.2),main="Proportion of Self-Loops and Edge Strength in McGill Dataset",cex.names=.5)
+
+## Comparison of self-loops
+erp.sl=rownames(Genecomp)[Genecomp[,"erp.self"]==1]
+comGenes=unique(rownames(Genecomp),BrP.park[,2],BrP.park[,3])
+head(comGenes)
+length(comGenes)
+
+park.com.sl=1*(is.element(comGenes,park.sl.name))
+table(park.com.sl)  
+meta.com.sl=1*(is.element(comGenes,erp.sl))
+table(meta.com.sl)
+t1=table(park.com.sl,meta.com.sl)
+t1
+fisher.test(t1) #OR = 8.4, P < 2.2 e-16
+# Self-loops Identified in Both ER-Positive Datasets
+comGenes[meta.com.sl == 1 & park.com.sl ==1]
+
+@
+
+<<Figure 7, Validation Analysis using Data from the Human Protein Atlas, eval=TRUE>>=
+cDir= 'https://raw.githubusercontent.com/becklab/esnet/master/Cancer.HPA.txt'
+nDir = 'https://raw.githubusercontent.com/becklab/esnet/master/Normal.HPA.txt'
+my_data <- getURL(cDir,ssl.verifypeer=FALSE)
+ca <- read.table(textConnection(my_data),sep="\t",header=T,row.names=1)
+my_data <- getURL(nDir,ssl.verifypeer=FALSE)
+norm <- read.table(textConnection(my_data),sep="\t",header=T,row.names=1)
+   
+erp.sl=rownames(Genecomp)[Genecomp[,"erp.self"]==1]
+ern.sl=rownames(Genecomp)[Genecomp[,"ern.self"]==1]
+
+genes=as.character(ca[,"Gene.ID"])
+genes=substr(genes,1,nchar(genes)-1)
+
+ca.sl=ca[is.element(genes,unique(c(ern.sl,erp.sl))),]
+ca.nsl=ca[!is.element(genes,unique(c(erp.sl,ern.sl))),]
+dim(ca.sl)   
+dim(ca.nsl)
+
+epi.rat.no=norm[,"Brown.Spots.in.Epithelium"]/norm[,"Epithelium.pixels"]
+str.rat.no=norm[,"Brown.Spots.in.Stroma"]/norm[,"Stroma.pixels"]
+
+epi.rat.sl=ca.sl[,"Brown.Spots.in.Epithelium"]/ca.sl[,"Epithelium.pixels"  ]
+epi.rat.nsl=ca.nsl[,"Brown.Spots.in.Epithelium"]/ca.nsl[,"Epithelium.pixels"  ]
+
+str.rat.sl=ca.sl[,"Brown.Spots.in.Stroma"]/ca.sl[,"Stroma.pixels"  ]
+str.rat.nsl=ca.nsl[,"Brown.Spots.in.Stroma"]/ca.nsl[,"Stroma.pixels"  ]
+
+epi.n.b=Mclust(epi.rat.no[!is.na(epi.rat.no) & !is.na(str.rat.no)],G=2)$class
+str.n.b=Mclust(str.rat.no[!is.na(epi.rat.no) & !is.na(str.rat.no)],G=2)$class
+
+epi.nsl.b=Mclust(epi.rat.nsl[!is.na(epi.rat.nsl) & !is.na(str.rat.nsl)],G=2)$class
+str.nsl.b=Mclust(str.rat.nsl[!is.na(epi.rat.nsl) & !is.na(str.rat.nsl)],G=2)$class
+
+epi.sl.b=Mclust(epi.rat.sl[!is.na(epi.rat.sl) & !is.na(str.rat.sl)],G=2)$class
+str.sl.b=Mclust(str.rat.sl[!is.na(epi.rat.sl) & !is.na(str.rat.sl)],G=2)$class
+
+x=c(sum(epi.n.b==2 & str.n.b == 2),sum(epi.nsl.b==2 & str.nsl.b == 2),sum(epi.sl.b==2 & str.sl.b == 2))
+n=c(length(epi.n.b),length(epi.nsl.b),length(epi.sl.b))
+p1=prop.test(x,n) ## 10% vs. 38% vs. 45%
+p1
+
+ barplot(p1$estimate,beside=T,names=c("Normal","Cancer-Non-SL","Cancer-SL"),main="Figure 7. Self-loops in the Human Protein Atlas",ylab="Proportion of Images with Co-Expression",col=c("blue","orange","red"))
+   
+x=c(sum(epi.n.b==2 & str.n.b == 2),sum(epi.sl.b==2 & str.sl.b == 2))
+n=c(length(epi.n.b),length(epi.sl.b))
+p1=prop.test(x,n) ## 10% vs. 45%
+p1
+
+x=c(sum(epi.nsl.b==2 & str.nsl.b == 2),sum(epi.sl.b==2 & str.sl.b == 2))
+n=c(length(epi.nsl.b),length(epi.sl.b))
+p1=prop.test(x,n) ##  38% vs. 45%
+p1
+@
+\end{document}

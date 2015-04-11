@@ -1,0 +1,1364 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.3.12)  10 APR 2015 13:46
+entering extended mode
+**analysis.tex
+(D:\newDropbox\Dropbox\esnet\analysis.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(C:\Users\abeck2\AppData\Roaming\MiKTeX\2.9\tex\latex\framed\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen105
+\fb@frh=\dimen106
+\FrameRule=\dimen107
+\FrameSep=\dimen108
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(C:\Users\abeck2\AppData\Roaming\MiKTeX\2.9\tex\latex\upquote\upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(D:\newDropbox\Dropbox\esnet\analysis.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+
+(C:\Users\abeck2\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen109
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen110
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 56.
+
+
+LaTeX Warning: No \author given.
+
+! Undefined control sequence.
+l.58 \authors
+             {Eun-Yeong Oh, Stephen M Christensen, Sindhu Ghanta, Jong Cheol...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1
+
+{C:/Users/abeck2/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Package color Info: Redefining color shadecolor on input line 64.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 66.
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 68--68
+[][]\OT1/cmtt/m/n/10 list.of.packages[] []<-[] []c[][]([][]"MatrixEQTL"[][],[] 
+[]"RcppArmadillo"[][],[] []"sqldf"[][],[] []"plyr"[][],[] []"mclust"[][],[][] 
+ []
+
+
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 69--69
+[]    []\OT1/cmtt/m/n/10 "reshape2"[][],[] []"RCurl"[][],[] []"igraph"[][],[] [
+]"RedeR"[][],[] []"SANTA"[][],[] []"GSA"[][],[] []"Vennerable"[][])[][] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 70--70
+[][]\OT1/cmtt/m/n/10 new.packages[] []<-[] []list.of.packages[[][]![][](list.of
+.packages[] []%in%[] []installed.packages[][]()[,[][] 
+ []
+
+
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 117--117
+\OT1/cmtt/m/it/10 ## ***This is RedeR 1.12.9! For a quick start, please type 'v
+ignette('RedeR')'. 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 117--117
+\OT1/cmtt/m/it/10 ##    Supporting information is available at Genome Biology 1
+3:R29,
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 133
+.
+(C:/PROGRA~1/R/R-31~1.1/share/texmf/tex/latex\omscmtt.fd
+File: omscmtt.fd 
+)
+LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 133.
+
+Overfull \hbox (106.49606pt too wide) in paragraph at lines 134--134
+[]    []\OT1/cmtt/m/n/10 res[] []=[] []Matrix_eQTL_main[][]([][]snps[] []= Slic
+edData[][]$[][]new[][](x[][]$[][]Str),[] []gene[] []= SlicedData[][]$[][]new[][
+](x[][]$[][]Epi),[][] 
+ []
+
+
+Overfull \hbox (164.24556pt too wide) in paragraph at lines 135--135
+[]        []\OT1/cmtt/m/n/10 cvrt[] []= SlicedData[][]$[][]new[][](),[] []outpu
+t_file_name[] []=[] []paste0[][](name,[] []".txt"[][]),[] []useModel[] []= mode
+lLINEAR,[][] 
+ []
+
+
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 136--136
+[]        []\OT1/cmtt/m/n/10 verbose[] []= T,[] []output_file_name.cis[] []=[] 
+[]0[][],[] []pvOutputThreshold[] []=[] []0.001[][])[][] 
+ []
+
+
+Overfull \hbox (22.24686pt too wide) in paragraph at lines 137--137
+[]    []\OT1/cmtt/m/n/10 output[] []<-[] []read.table[][]([][]paste0[][](name,[
+] []".txt"[][]),[] []header[] []= T,[] []sep[] []=[] []"\OMS/cmsy/m/n/10 n\OT1/
+cmtt/m/n/10 t"[][])[][] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 139--139
+[]    []\OT1/cmtt/m/n/10 colnames[][](output)[] []<-[] []c[][]([][]"Stroma"[][]
+,[] []"Epi"[][],[] []"t.stat"[][],[] []"p.value"[][],[] []"FDR"[][])[][] 
+ []
+
+
+Overfull \hbox (69.49644pt too wide) in paragraph at lines 140--140
+[]    []\OT1/cmtt/m/n/10 write.table[][](output,[] []file[] []=[] []paste0[][](
+name,[] []".txt"[][]),[] []sep[] []=[] []"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"
+[][],[] []row.names[] []= F,[][] 
+ []
+
+[2] [3]
+Package color Info: Redefining color shadecolor on input line 148.
+
+Overfull \hbox (39.98277pt too wide) in paragraph at lines 151--151
+[][]\OT1/cmtt/m/it/10 ## Data has common gene symbols across platform from with
+in a cancer type[][] 
+ []
+
+
+Overfull \hbox (1555.48343pt too wide) in paragraph at lines 153--153
+[][]\OT1/cmtt/m/n/10 files[][]=[][]c[][]([][]"GSE10797_BrEpi_28_anno_common.txt
+"[][],[][]"GSE10797_BrStr_28_anno_common.txt"[][],[][]"GSE14548_BrEpi_9_anno_co
+mmon.txt"[][],[][]"GSE14548_BrStr_9_anno_common.txt"[][],[][]"GSE35019_BrEpi_11
+_anno_common.txt"[][],[][]"GSE35019_BrStr_11_anno_common.txt"[][],[][]"GSE4823_
+NoEpi_22_anno_common.txt"[][],[][]"GSE4823_NoStr_22_anno_common.txt"[][],[][]"G
+SE5847_BrEpi_34_anno_common.txt"[][],[][]"GSE5847_BrStr_34_anno_common.txt"[][]
+)[][] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 154--154
+[][]\OT1/cmtt/m/n/10 dataDir[][]=[] []https://raw.githubusercontent.com/beckla
+b/esnet/master/[][] 
+ []
+
+
+Overfull \hbox (29.48286pt too wide) in paragraph at lines 158--158
+[][]\OT1/cmtt/m/it/10 ## We will summarize probes, by taking the probe with the
+ most variance[][] 
+ []
+
+
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 166--166
+[] []\OT1/cmtt/m/n/10 var.probe[] []<-[] []sapply[][](dfl,[][]function[][]([][]
+x[][])[][]apply[][](x,[][]1[][],[][]function[][]([][]y[][])[][]var[][](y)),[][]
+simplify[][]=F)[][] 
+ []
+
+
+Overfull \hbox (158.74567pt too wide) in paragraph at lines 177--177
+[] []\OT1/cmtt/m/n/10 write.table[][](nndfl,[][]file[][]=[][]paste0[][](files[i
+],[][]"_SCALED.txt"[][]),[][]col.names[][]=T,[][]row.names[][]=F,[][]quote[][]=
+F,[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"[][])[][] 
+ []
+
+[4]
+Package color Info: Redefining color shadecolor on input line 197.
+
+Overfull \hbox (2206.47775pt too wide) in paragraph at lines 199--199
+[][]\OT1/cmtt/m/n/10 epi.stroma.files[] []<-[] []c[][]([][]"GSE10797_BrEpi_28_a
+nno_common.txt_SCALED.txt"[][],[][]"GSE10797_BrStr_28_anno_common.txt_SCALED.tx
+t"[][],[][]"GSE14548_BrEpi_9_anno_common.txt_SCALED.txt"[][],[][]"GSE14548_BrSt
+r_9_anno_common.txt_SCALED.txt"[][],[][]"GSE35019_BrEpi_11_anno_common.txt_SCAL
+ED.txt"[][],[][]"GSE35019_BrStr_11_anno_common.txt_SCALED.txt"[][],[][]"GSE4823
+_NoEpi_22_anno_common.txt_SCALED.txt"[][],[][]"GSE4823_NoStr_22_anno_common.txt
+_SCALED.txt"[][],[][]"GSE5847_BrEpi_34_anno_common.txt_SCALED.txt"[][],[][]"GSE
+5847_BrStr_34_anno_common.txt_SCALED.txt"[][])[][] 
+ []
+
+
+Overfull \hbox (211.24521pt too wide) in paragraph at lines 201--201
+[][]\OT1/cmtt/m/n/10 all.epi.stroma.mats[] []<-[] []lapply[][](epi.stroma.files
+,[][]FUN[][]=read.table,[][]header[][]=T,[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT
+1/cmtt/m/n/10 t"[][],[][]check.names[][]=F,[][]row.names[][]=[][]1[][])[][] 
+ []
+
+
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 202--202
+[][]\OT1/cmtt/m/n/10 good.rows[] []<-[] []Reduce[][](intersect,[][]x[][]=[][]la
+pply[][](all.epi.stroma.mats,[][]FUN[][]=rownames))[][] 
+ []
+
+
+Overfull \hbox (48.24669pt too wide) in paragraph at lines 205--205
+[][]\OT1/cmtt/m/n/10 epi.stroma.num[] []<-[] []gsub[][]([][]".+GSE[0-9]+_.+_([0
+-9]+)_.+"[][],[][]"\OMS/cmsy/m/n/10 nn\OT1/cmtt/m/n/10 1"[][],epi.stroma.files)
+[][] 
+ []
+
+
+Overfull \hbox (279.74455pt too wide) in paragraph at lines 213--213
+[][]\OT1/cmtt/m/n/10 newcols[] []<-[] []unlist[][]([][]mapply[][]([][]function[
+][]([][]x[][],[][]y[][],[][]z[][])[][]paste[][](x,y,z,[][]sep[][]=[][]"_"[][]),
+[][]lapply[][](all.epi.stroma.mats,colnames),grps,epi.stroma.num))[][] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 217--217
+[][]\OT1/cmtt/m/n/10 allmat.by.ctype[] []<-[] []lapply[][]([][]split[][]([][]da
+ta.frame[][]([][]t[][](bigmat)),new.egrps),t)[][] 
+ []
+
+
+Overfull \hbox (95.99615pt too wide) in paragraph at lines 226--226
+[][]\OT1/cmtt/m/n/10 boxplot[][](t.ER[][]$[][]Epi[[][]"ESR1"[][],][][]~[][]ERcl
+ass[][]$[][]class,[][]names[][]=[][]c[][]([][]"ER-neg"[][],[][]"ER-pos"[][]),[]
+[]ylab[][]=[][]"ESR1 mRNA"[][])[][] 
+ []
+
+[5] <figure/Combine_Data_Sets-1.pdf, id=24, 505.89pt x 505.89pt>
+File: figure/Combine_Data_Sets-1.pdf Graphic file (type pdf)
+
+<use figure/Combine_Data_Sets-1.pdf>
+Package pdftex.def Info: figure/Combine_Data_Sets-1.pdf used on input line 229.
+
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 229--230
+[][] 
+ []
+
+
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 232--232
+[][]\OT1/cmtt/m/n/10 sites[][]=[][]unlist[][]([][]lapply[][]([][]strsplit[][]([
+][]colnames[][](t.ER[][]$[][]Epi),[][]"_"[][]),[][]function[][]([][]xx[][])(xx[
+[][]4[][]])))[][] 
+ []
+
+
+Overfull \hbox (55.73264pt too wide) in paragraph at lines 243--243
+[][]\OT1/cmtt/m/n/10 chisq.test[][](t1)[] []\OT1/cmtt/m/it/10 # p =0.34 , No si
+gnificant association of site with ER status[][] 
+ []
+
+
+Overfull \hbox (38.24666pt too wide) in paragraph at lines 247--247
+[]\OT1/cmtt/m/n/10 ## Warning in chisq.test(t1): Chi-squared approximation may 
+be incorrect[] 
+ []
+
+
+Overfull \hbox (384.74364pt too wide) in paragraph at lines 255--255
+[][]\OT1/cmtt/m/n/10 plot[][](t.ER[][]$[][]Epi[[][]"ESR1"[][],],[][]col[][]=sit
+es,[][]pch[][]=ERclass[][]$[][]class,[][]main[][]=[][]"No Significant Associati
+on of Dataset with ESR1 Status (P=0.34)"[][],[][]ylab[][]=[][]"ESR1 mRNA"[][])[
+][] 
+ []
+
+[6 <D:/newDropbox/Dropbox/esnet/figure/Combine_Data_Sets-1.pdf>]
+<figure/Combine_Data_Sets-2.pdf, id=33, 505.89pt x 505.89pt>
+File: figure/Combine_Data_Sets-2.pdf Graphic file (type pdf)
+
+<use figure/Combine_Data_Sets-2.pdf>
+Package pdftex.def Info: figure/Combine_Data_Sets-2.pdf used on input line 258.
+
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 258--259
+[][] 
+ []
+
+[7 <D:/newDropbox/Dropbox/esnet/figure/Combine_Data_Sets-2.pdf>]
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 260--260
+[][]\OT1/cmtt/m/n/10 BrEpi.posneg[] []<-[] []lapply[][]([][]split[][]([][]data.
+frame[][]([][]t[][](t.ER[][]$[][]Epi)),ERclass[][]$[][]classification),t)[][] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 261--261
+[][]\OT1/cmtt/m/n/10 BrStr.posneg[] []<-[] []lapply[][]([][]split[][]([][]data.
+frame[][]([][]t[][](t.ER[][]$[][]Str)),ERclass[][]$[][]classification),t)[][] 
+ []
+
+
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 262--262
+[][]\OT1/cmtt/m/n/10 allmat.by.ctype.by.ES[][]$[][]BrP[] []<-[] []list[][]([][]
+Epi[][]=BrEpi.posneg[[[][]"2"[][]]],[][]Str[][]=BrStr.posneg[[[][]"2"[][]]])[][
+] 
+ []
+
+
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 263--263
+[][]\OT1/cmtt/m/n/10 allmat.by.ctype.by.ES[][]$[][]BrN[] []<-[] []list[][]([][]
+Epi[][]=BrEpi.posneg[[[][]"1"[][]]],[][]Str[][]=BrStr.posneg[[[][]"1"[][]]])[][
+] 
+ []
+
+
+Overfull \hbox (1.01965pt too wide) in paragraph at lines 268--268
+[]\OT1/cmr/bx/n/14.4 Run Ma-trix EQTL on Merged Datasts for IBC
+ []
+
+Package color Info: Redefining color shadecolor on input line 270.
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 285--285
+[]\OT1/cmtt/m/n/10 ## Processing gene expression data (imputation, residualizat
+ion, etc.)[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 300--300
+[]\OT1/cmtt/m/n/10 ## Processing gene expression data (imputation, residualizat
+ion, etc.)[] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 315--315
+[]\OT1/cmtt/m/n/10 ## Processing gene expression data (imputation, residualizat
+ion, etc.)[] 
+ []
+
+[8]
+Package color Info: Redefining color shadecolor on input line 321.
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 338--338
+[][]\OT1/cmtt/m/n/10 brpg[] []<-[] []set.edge.attribute[][](brpg,[][]"weights"[
+][],[][]value[][]=[][]1[][]/[][]abs[][]([][]E[][](brpg)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 339--339
+[][]\OT1/cmtt/m/n/10 brng[] []<-[] []set.edge.attribute[][](brng,[][]"weights"[
+][],[][]value[][]=[][]1[][]/[][]abs[][]([][]E[][](brng)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (127.49588pt too wide) in paragraph at lines 10772--10772
+[][]\OT1/cmtt/m/n/10 colnames[][](Genecomp)[][]=[][]c[][]([][]"NormDegree"[][],
+[][]"StromaNorm"[][],[][]"EpiNorm"[][],[][]"BrPDegree"[][],[][]"StromaBrP"[][],
+[][]"EpiBrP"[][],[][] 
+ []
+
+
+Overfull \hbox (127.49588pt too wide) in paragraph at lines 10773--10773
+[]               []\OT1/cmtt/m/n/10 "BrPminusNormDegree"[][],[][]"BrNDegree"[][
+],[][]"StromaBrN"[][],[][]"EpiBrN"[][],[][]"BrNminusNormDegree"[][])[][] 
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmtt/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 10824
+.
+
+Overfull \hbox (86.98242pt too wide) in paragraph at lines 10824--10824
+[][]\OT1/cmtt/m/it/10 # write.table(Genecomp,"EpiStrDegreeMatrix.txt",col.names
+=NA,sep="\OMS/cmsy/m/n/10 n\OT1/cmtt/m/it/10 t",row.names=T)[][] 
+ []
+
+Package color Info: Redefining color shadecolor on input line 10830.
+[9] [10]
+Package color Info: Redefining color shadecolor on input line 10958.
+
+Overfull \hbox (34.73282pt too wide) in paragraph at lines 10960--10960
+[][]\OT1/cmtt/m/it/10 # A. Number of Significant Epithelial-Stromal Co-expressi
+on Interactions[][] 
+ []
+
+
+Overfull \hbox (1019.9881pt too wide) in paragraph at lines 10961--10961
+[][]\OT1/cmtt/m/n/10 barplot[][]([][]c[][]([][]sum[][](norm[,[][]"FDR"[][]][][]
+<[][]0.05[][]),[][]sum[][](BrP[,[][]"FDR"[][]][][]<[][]0.05[][]),[][]sum[][](Br
+N[,[][]"FDR"[][]][][]<[][]0.05[][])),[][]names[][]=[][]c[][]([][]"Normal"[][],[
+][]"ER-pos IBC"[][],[][]"ER-neg IBC"[][]),[][]ylab[][]=[][]"Epi-Stroma Interact
+ions with FDR < 5"[][],[][]ylim[][]=[][]c[][]([][]0[][],[][]2500[][]),[][]main[
+][]=[][]"2A: Number of Significant Epithelial-Stromal Co-expression Interaction
+s"[][])[][] 
+ []
+
+<figure/Figure_2-1.pdf, id=53, 505.89pt x 505.89pt>
+File: figure/Figure_2-1.pdf Graphic file (type pdf)
+
+<use figure/Figure_2-1.pdf>
+Package pdftex.def Info: figure/Figure_2-1.pdf used on input line 10964.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 10964--10965
+[][] 
+ []
+
+[11]
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 10966--10966
+[][]\OT1/cmtt/m/n/10 norm1.sl[][]=[][]apply[][](norm[norm[,[][]"FDR"[][]][][]<[
+][]0.05[][],],[][]1[][],[][]function[][]([][]x[][])([][]1[][]*[][](x[[][]1[][]]
+[][]==[][]x[[][]2[][]])))[][] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 10975--10975
+[][]\OT1/cmtt/m/n/10 brp1.sl[][]=[][]apply[][](BrP[BrP[,[][]"FDR"[][]][][]<[][]
+0.05[][],],[][]1[][],[][]function[][]([][]x[][])([][]1[][]*[][](x[[][]1[][]][][
+]==[][]x[[][]2[][]])))[][] 
+ []
+
+
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 10984--10984
+[][]\OT1/cmtt/m/n/10 brn1.sl[][]=[][]apply[][](BrN[BrN[,[][]"FDR"[][]][][]<[][]
+0.05[][],],[][]1[][],[][]function[][]([][]x[][])([][]1[][]*[][](x[[][]1[][]][][
+]==[][]x[[][]2[][]])))[][] 
+ []
+
+
+Overfull \hbox (825.73979pt too wide) in paragraph at lines 10994--10994
+[][]\OT1/cmtt/m/n/10 barplot[][]([][]c[][](tno[[][]2[][]][][]/[][]sum[][](tno),
+ tn[[][]2[][]][][]/[][]sum[][](tn),tp[[][]2[][]][][]/[][]sum[][](tp)),[][]besid
+e[][]=T,[][]names[][]=[][]c[][]([][]"Normal"[][],[][]"ER-neg IBC"[][],[][]"ER-p
+os IBC"[][]),[][]ylab[][]=[][]"Proportion of Self-loops"[][],[][]ylim[][]=[][]c
+[][]([][]0[][],[][]0.25[][]),[][]main[][]=[][]"2B: Proportion of Self-Loops Amo
+ng Significant Interactions"[][])[][] 
+ []
+
+[12 <D:/newDropbox/Dropbox/esnet/figure/Figure_2-1.pdf>]
+<figure/Figure_2-2.pdf, id=66, 505.89pt x 505.89pt>
+File: figure/Figure_2-2.pdf Graphic file (type pdf)
+
+<use figure/Figure_2-2.pdf>
+Package pdftex.def Info: figure/Figure_2-2.pdf used on input line 10997.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 10997--10998
+[][] 
+ []
+
+
+Overfull \hbox (129.232pt too wide) in paragraph at lines 10999--10999
+[][]\OT1/cmtt/m/it/10 # C. Proportion of Self Loops and Coexpression Interactio
+n Significance in ER positive IBC[][] 
+ []
+
+
+Overfull \hbox (673.49112pt too wide) in paragraph at lines 11007--11007
+[][]\OT1/cmtt/m/n/10 barplot[][]([][]c[][](p1,p2,p3,p4,p5),[][]main[][]=[][]"2C
+: Proportion Self-Loops in ER-positive IBC"[][],[][]names[][]=[][]c[][]([][]"-l
+og(fdr) > 4"[][],[] []"4 > -log(FDR) > 3"[][],[][]"3 > -log(FDR) > 2"[][],[][]"
+2 > -log(FDR) > 1"[][],[][]"1 > -log(FDR)"[][]),[][]cex.names[][]=[][].75[][])[
+][] 
+ []
+
+<figure/Figure_2-3.pdf, id=67, 505.89pt x 505.89pt>
+File: figure/Figure_2-3.pdf Graphic file (type pdf)
+
+<use figure/Figure_2-3.pdf>
+Package pdftex.def Info: figure/Figure_2-3.pdf used on input line 11010.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11010--11011
+[][] 
+ []
+
+[13 <D:/newDropbox/Dropbox/esnet/figure/Figure_2-2.pdf>]
+Overfull \hbox (129.232pt too wide) in paragraph at lines 11012--11012
+[][]\OT1/cmtt/m/it/10 # D. Proportion of Self Loops and Coexpression Interactio
+n Significance in ER negative IBC[][] 
+ []
+
+
+Overfull \hbox (683.99103pt too wide) in paragraph at lines 11020--11020
+[][]\OT1/cmtt/m/n/10 barplot[][]([][]c[][](p1,p2,p3,p4,p5),[][]main[][]=[][]"2D
+: Proportion Self-Loops in ER-negative IBC"[][], ,[][]names[][]=[][]c[][]([][]"
+-log(fdr) > 4"[][],[] []"4 > -log(FDR) > 3"[][],[][]"3 > -log(FDR) > 2"[][],[][
+]"2 > -log(FDR) > 1"[][],[][]"1 > -log(FDR)"[][]),[][]cex.names[][]=[][].75[][]
+)[][] 
+ []
+
+<figure/Figure_2-4.pdf, id=78, 505.89pt x 505.89pt>
+File: figure/Figure_2-4.pdf Graphic file (type pdf)
+
+<use figure/Figure_2-4.pdf>
+Package pdftex.def Info: figure/Figure_2-4.pdf used on input line 11023.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11023--11024
+[][] 
+ []
+
+[14 <D:/newDropbox/Dropbox/esnet/figure/Figure_2-3.pdf>]
+Package color Info: Redefining color shadecolor on input line 11028.
+
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 11043--11043
+[][]\OT1/cmtt/m/n/10 brpg[] []<-[] []set.edge.attribute[][](brpg,[][]"weight"[]
+[],[][]value[][]=[][]1[][]/[][]abs[][]([][]E[][](brpg)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 11044--11044
+[][]\OT1/cmtt/m/n/10 brng[] []<-[] []set.edge.attribute[][](brng,[][]"weight"[]
+[],[][]value[][]=[][]1[][]/[][]abs[][]([][]E[][](brng)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 11048--11048
+[][]\OT1/cmtt/m/n/10 ng[] []<-[] []set.vertex.attribute[][](ng,[][]"selfloop"[]
+[],[][]value[][]=[][]1[][]*[][]([][]is.element[][]([][]V[][](ng)[][]$[][]name,s
+l)))[][] 
+ []
+
+
+Overfull \hbox (3.80693pt too wide) in paragraph at lines 11053--11053
+[]\OT1/cmtt/m/n/10 ## Warning in .Call("R[]igraph[]subgraph", graph, as.igraph.
+vs(graph,
+ []
+
+
+Overfull \hbox (35.30666pt too wide) in paragraph at lines 11053--11053
+\OT1/cmtt/m/n/10 v) - 1, : At structural[]properties.c:1945 :igraph[]subgraph i
+s deprecated
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 11055--11055
+[][]\OT1/cmtt/m/n/10 brpg[] []<-[] []set.vertex.attribute[][](brpg,[][]"degree"
+[][],[][]value[][]=igraph[][]::[][]degree[][](brpg))[][] 
+ []
+
+
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 11056--11056
+[][]\OT1/cmtt/m/n/10 brpg[] []<-[] []set.vertex.attribute[][](brpg,[][]"selfloo
+p"[][],[][]value[][]=[][]1[][]*[][]([][]is.element[][]([][]V[][](brpg)[][]$[][]
+name,sl)))[][] 
+ []
+
+
+Overfull \hbox (3.80693pt too wide) in paragraph at lines 11061--11061
+[]\OT1/cmtt/m/n/10 ## Warning in .Call("R[]igraph[]subgraph", graph, as.igraph.
+vs(graph,
+ []
+
+
+Overfull \hbox (35.30666pt too wide) in paragraph at lines 11061--11061
+\OT1/cmtt/m/n/10 v) - 1, : At structural[]properties.c:1945 :igraph[]subgraph i
+s deprecated
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 11072--11072
+[][]\OT1/cmtt/m/n/10 brng[] []<-[] []set.vertex.attribute[][](brng,[][]"degree"
+[][],[][]value[][]=igraph[][]::[][]degree[][](brng))[][] 
+ []
+
+
+Overfull \hbox (90.7462pt too wide) in paragraph at lines 11073--11073
+[][]\OT1/cmtt/m/n/10 brng[] []<-[] []set.vertex.attribute[][](brng,[][]"selfloo
+p"[][],[][]value[][]=[][]1[][]*[][]([][]is.element[][]([][]V[][](brng)[][]$[][]
+name,sl)))[][] 
+ []
+
+
+Overfull \hbox (3.80693pt too wide) in paragraph at lines 11078--11078
+[]\OT1/cmtt/m/n/10 ## Warning in .Call("R[]igraph[]subgraph", graph, as.igraph.
+vs(graph,
+ []
+
+
+Overfull \hbox (35.30666pt too wide) in paragraph at lines 11078--11078
+\OT1/cmtt/m/n/10 v) - 1, : At structural[]properties.c:1945 :igraph[]subgraph i
+s deprecated
+ []
+
+
+Overfull \hbox (95.99615pt too wide) in paragraph at lines 11151--11151
+[][]\OT1/cmtt/m/n/10 cols[][]=[][]rep[][]([][]rgb[][]([][]t[][]([][]col2rgb[][]
+([][]"orange"[][],[][]alpha[][]=[][]0.5[][])),[][]maxColorValue[][]=[][]255[][]
+),[][]length[][]([][]E[][](sg)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 11152--11152
+[][]\OT1/cmtt/m/n/10 cols[[][]E[][](sg)[][]$[][]t.stat[][]<=[][]0[][]][][]=[][]
+rgb[][]([][]t[][]([][]col2rgb[][]([][]"slateblue"[][],[][]alpha[][]=[][]0.5[][]
+)),[][]maxColorValue[][]=[][]255[][])[][] 
+ []
+
+
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 11155--11155
+[][]\OT1/cmtt/m/n/10 sg[] []<-[] []att.setv[][](sg,[] []from[][]=[][]"selfloop"
+[][],[] []to[][]=[][]"nodeColor"[][],[] []cols[][]=[][]c[][]([][]"grey"[][],[][
+]"deeppink"[][]))[][] 
+ []
+
+
+Overfull \hbox (80.24629pt too wide) in paragraph at lines 11156--11156
+[][]\OT1/cmtt/m/n/10 sg[] []<-[] []att.setv[][](sg,[] []from[][]=[][]"degree"[]
+[],[] []to[][]=[][]"nodeSize"[][],[][]isrev[][]=F,[][]nquant[][]=[][]10[][],[][
+]xlim[][]=[][]c[][]([][]1[][],[][]50[][],[][]0[][]))[][] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 11158--11158
+[][]\OT1/cmtt/m/n/10 sg[] []<-[] []att.sete[][](sg,[][]from[][]=[][]"color"[][]
+,[][]to[][]=[][]"edgeColor"[][],[][]cols[][]=[][]c[][]([][]"slateblue"[][],[][]
+"orange"[][]))[][] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 11161--11161
+[][]\OT1/cmtt/m/n/10 sg[] []<-[] []set.edge.attribute[][](sg,[][]"arrowDirectio
+n"[][],[][]value[][]=[][]rep[][]([][]1[][],[][]length[][]([][]E[][](sg)[][]$[][
+]t.stat)))[][] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 11178--11179
+[]\OT1/cmtt/m/n/10 ## Warning in .local(obj, g, ...): NOTE: edge 'direction' mu
+st be
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 11182--11183
+[]\OT1/cmtt/m/n/10 ## Warning in .local(obj, g, ...): NOTE: edge 'direction' mu
+st be
+ []
+
+[15 <D:/newDropbox/Dropbox/esnet/figure/Figure_2-4.pdf>] [16] [17]
+<figure/RedeR_Visualization-1.pdf, id=103, 505.89pt x 505.89pt>
+File: figure/RedeR_Visualization-1.pdf Graphic file (type pdf)
+
+<use figure/RedeR_Visualization-1.pdf>
+Package pdftex.def Info: figure/RedeR_Visualization-1.pdf used on input line 11
+185.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11185--11186
+[][] 
+ []
+
+[18]
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 11190--11191
+[]\OT1/cmtt/m/n/10 ## Warning in .local(obj, g, ...): NOTE: edge 'direction' mu
+st be
+ []
+
+<figure/RedeR_Visualization-2.pdf, id=107, 505.89pt x 505.89pt>
+File: figure/RedeR_Visualization-2.pdf Graphic file (type pdf)
+
+<use figure/RedeR_Visualization-2.pdf>
+Package pdftex.def Info: figure/RedeR_Visualization-2.pdf used on input line 11
+193.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11193--11194
+[][] 
+ []
+
+<figure/RedeR_Visualization-3.pdf, id=108, 505.89pt x 505.89pt> [19 <D:/newDrop
+box/Dropbox/esnet/figure/RedeR_Visualization-1.pdf>]
+File: figure/RedeR_Visualization-3.pdf Graphic file (type pdf)
+
+<use figure/RedeR_Visualization-3.pdf>
+Package pdftex.def Info: figure/RedeR_Visualization-3.pdf used on input line 11
+195.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11195--11196
+[][] 
+ []
+
+[20 <D:/newDropbox/Dropbox/esnet/figure/RedeR_Visualization-2.pdf>]
+Package color Info: Redefining color shadecolor on input line 11203.
+
+Overfull \hbox (116.99597pt too wide) in paragraph at lines 11208--11208
+[]   []\OT1/cmtt/m/n/10 f1[][]=[] []https://raw.githubusercontent.com/becklab/
+esnet/master/PrognosticSignatures.txt[][] 
+ []
+
+
+Overfull \hbox (37.99672pt too wide) in paragraph at lines 11210--11210
+[]   []\OT1/cmtt/m/n/10 sigs[][]=[][]read.table[][]([][]textConnection[][](my_d
+ata),[][]row.names[][]=[][]1[][],[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m
+/n/10 t"[][],[][]header[][]=T)[][] 
+ []
+
+
+Overfull \hbox (122.24593pt too wide) in paragraph at lines 11211--11211
+[]   []\OT1/cmtt/m/n/10 sigs[][]=[][]sigs[,[][]c[][]([][]"Carter.2006..CIN.70."
+[][],[][]"Rody.2009..interferon."[][],[] []"Sotiriou.2006..GGI."[] [])][][] 
+ []
+
+
+Overfull \hbox (253.49478pt too wide) in paragraph at lines 11221--11221
+[]   []\OT1/cmtt/m/n/10 f1[][]=[] []https://raw.githubusercontent.com/becklab/
+epistromanetwork/master/GeneSets/CellTypeSpecificSignatures.txt[][] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 11251--11251
+[][]\OT1/cmtt/m/n/10 brpg[] []<-[] []set.edge.attribute[][](brpg,[][]"weights"[
+][],[][]value[][]=[][]1[][]/[][]abs[][]([][]E[][](brpg)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 11252--11252
+[][]\OT1/cmtt/m/n/10 brng[] []<-[] []set.edge.attribute[][](brng,[][]"weights"[
+][],[][]value[][]=[][]1[][]/[][]abs[][]([][]E[][](brng)[][]$[][]t.stat))[][] 
+ []
+
+
+Overfull \hbox (195.74529pt too wide) in paragraph at lines 11261--11261
+[]      []\OT1/cmtt/m/n/10 norm.ps[i][][]=[][]Knet[][](ng,[] []nperm[][]=nperms
+,[] []edge.attr[][]=[][]"weights"[][],[] []vertex.attr[][]=[][]"pheno"[][],[][]
+verbose[][]=F,[][]only.pval[][]=T)[][] 
+ []
+
+
+Overfull \hbox (216.7451pt too wide) in paragraph at lines 11289--11289
+[]         []\OT1/cmtt/m/n/10 brp.ps[i][][]=[][]Knet[][](brpg,[] []nperm[][]=np
+erms,[] []edge.attr[][]=[][]"weights"[][],[] []vertex.attr[][]=[][]"pheno"[][],
+[][]verbose[][]=F,[][]only.pval[][]=T)[][] 
+ []
+
+
+Overfull \hbox (216.7451pt too wide) in paragraph at lines 11317--11317
+[]         []\OT1/cmtt/m/n/10 brn.ps[i][][]=[][]Knet[][](brng,[] []nperm[][]=np
+erms,[] []edge.attr[][]=[][]"weights"[][],[] []vertex.attr[][]=[][]"pheno"[][],
+[][]verbose[][]=F,[][]only.pval[][]=T)[][] 
+ []
+
+
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 11330--11330
+[]   []\OT1/cmtt/m/n/10 brnPs[][]=[][]matrix[][](brn.ps,[][]ncol[][]=[][]1[][],
+[][]dimnames[][]=[][]list[][](genesetNames,[][]"ERneg"[][]))[][] 
+ []
+
+[21 <D:/newDropbox/Dropbox/esnet/figure/RedeR_Visualization-3.pdf>]
+Underfull \vbox (badness 10000) detected at line 11339
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11339
+ []
+
+[22] [23]
+Package color Info: Redefining color shadecolor on input line 11344.
+
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 11346--11346
+[]   []\OT1/cmtt/m/n/10 f1[][]=[] []https://raw.githubusercontent.com/becklab/
+esnet/master/SANTAresults.txt[][] 
+ []
+
+
+Overfull \hbox (43.24667pt too wide) in paragraph at lines 11348--11348
+[][]\OT1/cmtt/m/n/10 s.co.adj[][]=[][]read.table[][]([][]textConnection[][](my_
+data),[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"[][],[][]row.names[
+][]=[][]1[][],[][]header[][]=T)[][] 
+ []
+
+
+Overfull \hbox (815.23988pt too wide) in paragraph at lines 11359--11359
+[][]\OT1/cmtt/m/n/10 plot[][]([][]-[][]log10[][](s.co.adj[,[][]"Normal.Breast..
+Epithelial.Stromal."[][]]),[][]-[][]log10[][](s.co.adj[,[][]"ER.positive..Epith
+elial.Stromal."[][]]),[][]xlab[][]=[][]"Norm-ES"[][],[][]ylab[][]=[][]"ER.Pos-E
+S"[][],[][]col[][]=type,[] []main[] []=[] []"4A: Functional ES Network Rewiring
+ (ER-Pos vs. Normal)"[][])[][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-1.pdf, id=143, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-1.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-1.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-1.pdf used 
+on input line 11363.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11363--11364
+[][] 
+ []
+
+[24]
+Overfull \hbox (825.73979pt too wide) in paragraph at lines 11365--11365
+[][]\OT1/cmtt/m/n/10 plot[][]([][]-[][]log10[][](s.co.adj[,[][]"Normal.Breast..
+Epithelial.Stromal."[][]]),[][]-[][]log10[][](s.co.adj[,[][]"ER.negative..Epith
+elial.Stromal."[]  []]),[][]xlab[][]=[][]"Norm-ES"[][],[][]ylab[][]=[][]"ER.Neg
+-ES"[][],[][]col[][]=type,[] []main[] []=[] []"4B: Functional ES Network Rewiri
+ng (ER-Neg vs. Normal)"[][])[][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-2.pdf, id=147, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-2.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-2.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-2.pdf used 
+on input line 11369.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11369--11370
+[][] 
+ []
+
+[25 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-1.p
+df>]
+Overfull \hbox (809.98993pt too wide) in paragraph at lines 11371--11371
+[][]\OT1/cmtt/m/n/10 plot[][]([][]-[][]log10[][](s.co.adj[,[][]"ER.positive..Ep
+ithelial.Stromal."[][]]),[][]-[][]log10[][](s.co.adj[,[][]"ER.negative..Epithel
+ial.Stromal."[][]]),[][]xlab[][]=[][]"ER.Pos-ES"[][],[][]ylab[][]=[][]"ER.Neg-E
+S"[][],[][]col[][]=type,[][]main[] []=[] []"4C: Functional ES Network Rewiring 
+(ER-Neg vs. ER-Pos)"[][])[][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-3.pdf, id=158, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-3.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-3.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-3.pdf used 
+on input line 11375.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11375--11376
+[][] 
+ []
+
+[26 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-2.p
+df>]
+Overfull \hbox (767.9903pt too wide) in paragraph at lines 11378--11378
+[][]\OT1/cmtt/m/n/10 plot[][]([][]-[][]log10[][](s.co.adj[,[][]"Normal.Breast..
+Epithelial.Stromal."[][]]),[][]-[][]log10[][](s.co.adj[,[][]"Normal.Breast..Epi
+thelial.Epithelial."[][]]),[][]xlab[][]=[][]"Norm-ES"[][],[][]ylab[][]=[][]"Nor
+m-EE"[][],[][]col[][]=type,[] []main[] []=[] []"5A: Normal Breast - Epi-Epi vs.
+ Epi-Stroma"[][])[][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-4.pdf, id=168, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-4.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-4.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-4.pdf used 
+on input line 11382.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11382--11383
+[][] 
+ []
+
+[27 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-3.p
+df>]
+Overfull \hbox (767.9903pt too wide) in paragraph at lines 11384--11384
+[][]\OT1/cmtt/m/n/10 plot[][]([][]-[][]log10[][](s.co.adj[,[][]"ER.positive..Ep
+ithelial.Stromal."[] []]),[][]-[][]log10[][](s.co.adj[,[][]"ER.positive..Epithe
+lial.Epithelial."[]  []]),[][]xlab[][]=[][]"ER.Pos-ES"[][],[][]ylab[][]=[][]"ER
+.Pos-EE"[][],[][]col[][]=type,[] []main[] []=[] []"5B: ER-pos IBC - Epi-Epi vs.
+ Epi-Stroma"[][])[][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-5.pdf, id=178, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-5.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-5.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-5.pdf used 
+on input line 11388.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11388--11389
+[][] 
+ []
+
+[28 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-4.p
+df>]
+Overfull \hbox (767.9903pt too wide) in paragraph at lines 11390--11390
+[][]\OT1/cmtt/m/n/10 plot[][]([][]-[][]log10[][](s.co.adj[,[][]"ER.negative..Ep
+ithelial.Stromal."[] []]),[][]-[][]log10[][](s.co.adj[,[][]"ER.negative..Epithe
+lial.Epithelial."[]  []]),[][]xlab[][]=[][]"ER.Neg-ES"[][],[][]ylab[][]=[][]"ER
+.Neg-EE"[][],[][]col[][]=type,[] []main[] []=[] []"5C: ER-neg IBC - Epi-Epi vs.
+ Epi-Stroma"[][])[][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-6.pdf, id=188, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-6.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-6.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-6.pdf used 
+on input line 11394.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11394--11395
+[][] 
+ []
+
+[29 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-5.p
+df>]
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 11397--11397
+[][]\OT1/cmtt/m/n/10 sp[][]=[][]row.names[][](s.co.adj)[s.co.adj[,[][]"ER.posit
+ive..Epithelial.Stromal."[][]][][]<[][]0.05[][]][][] 
+ []
+
+
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 11398--11398
+[][]\OT1/cmtt/m/n/10 sn[][]=[][]row.names[][](s.co.adj)[s.co.adj[,[][]"ER.negat
+ive..Epithelial.Stromal."[][]][][]<[][]0.05[][]][][] 
+ []
+
+
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 11399--11399
+[][]\OT1/cmtt/m/n/10 nn[][]=[][]row.names[][](s.co.adj)[s.co.adj[,[][]"Normal.B
+reast..Epithelial.Stromal."[][]][][]<[][]0.05[][]][][] 
+ []
+
+
+Overfull \hbox (74.99634pt too wide) in paragraph at lines 11401--11401
+[][]\OT1/cmtt/m/n/10 sp.ee[][]=[][]row.names[][](s.co.adj)[s.co.adj[,[][]"ER.po
+sitive..Epithelial.Epithelial."[][]][][]<[][]0.05[][]][][] 
+ []
+
+
+Overfull \hbox (80.24629pt too wide) in paragraph at lines 11402--11402
+[][]\OT1/cmtt/m/n/10 sn.ee[][]=[][]row.names[][](s.co.adj)[s.co.adj[,[][]"ER.ne
+gative..Epithelial.Epithelial."[] []][][]<[][]0.05[][]][][] 
+ []
+
+
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 11403--11403
+[][]\OT1/cmtt/m/n/10 nn.ee[][]=[][]row.names[][](s.co.adj)[s.co.adj[,[][]"Norma
+l.Breast..Epithelial.Epithelial."[][]][][]<[][]0.05[][]][][] 
+ []
+
+
+<figure/Figure_4__Analysis_of_SANTA_Results-7.pdf, id=198, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-7.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-7.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-7.pdf used 
+on input line 11411.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11411--11412
+[][] 
+ []
+
+[30 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-6.p
+df>]
+<figure/Figure_4__Analysis_of_SANTA_Results-8.pdf, id=208, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-8.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-8.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-8.pdf used 
+on input line 11418.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11418--11419
+[][] 
+ []
+
+[31 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-7.p
+df>]
+<figure/Figure_4__Analysis_of_SANTA_Results-9.pdf, id=218, 505.89pt x 505.89pt>
+File: figure/Figure_4__Analysis_of_SANTA_Results-9.pdf Graphic file (type pdf)
+<use figure/Figure_4__Analysis_of_SANTA_Results-9.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-9.pdf used 
+on input line 11425.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11425--11426
+[][] 
+ []
+
+[32 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-8.p
+df>]
+<figure/Figure_4__Analysis_of_SANTA_Results-10.pdf, id=227, 505.89pt x 505.89pt
+>
+File: figure/Figure_4__Analysis_of_SANTA_Results-10.pdf Graphic file (type pdf)
+
+ <use figure/Figure_4__Analysis_of_SANTA_Results-10.pdf>
+Package pdftex.def Info: figure/Figure_4__Analysis_of_SANTA_Results-10.pdf used
+ on input line 11432.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11432--11433
+[][] 
+ []
+
+[33 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-9.p
+df>]
+Package color Info: Redefining color shadecolor on input line 11438.
+
+Overfull \hbox (95.99615pt too wide) in paragraph at lines 11440--11440
+[][]\OT1/cmtt/m/n/10 eDir[][]=[] []https://raw.githubusercontent.com/becklab/e
+snet/master/eset_erp_finak_ex.txt[][] 
+ []
+
+
+Overfull \hbox (111.74602pt too wide) in paragraph at lines 11441--11441
+[][]\OT1/cmtt/m/n/10 aDir[] []=[] []https://raw.githubusercontent.com/becklab/
+esnet/master/eset_erp_finak_anno.txt[][] 
+ []
+
+
+Overfull \hbox (95.74622pt too wide) in paragraph at lines 11443--11443
+[][]\OT1/cmtt/m/n/10 e1[] []<-[] []data.matrix[][]([][]read.table[][]([][]textC
+onnection[][](my_data),[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"[]
+[],[][]header[][]=T,[][]row.names[][]=[][]1[][]))[][] 
+ []
+
+
+Overfull \hbox (27.49681pt too wide) in paragraph at lines 11445--11445
+[][]\OT1/cmtt/m/n/10 g1[] []<-[] []read.table[][]([][]textConnection[][](my_dat
+a),[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"[][],[][]header[][]=T,
+[][]row.names[][]=[][]1[][])[][] 
+ []
+
+
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 11447--11447
+[][]\OT1/cmtt/m/n/10 type[][]=[][]unlist[][]([][]lapply[][]([][]strsplit[][]([]
+[]colnames[][](e1),[][]"."[][],[][]fixed[][]=T),[][]function[][]([][]x[][])(x[[
+[][]2[][]]])))[][] 
+ []
+
+
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 11456--11456
+[][]\OT1/cmtt/m/n/10 samps[][]=[][]unlist[][]([][]lapply[][]([][]strsplit[][]([
+][]colnames[][](e1),[][]"_"[][],[][]fixed[][]=T),[][]function[][]([][]x[][])(x[
+[[][]2[][]]])))[][] 
+ []
+
+
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 11492--11492
+[]\OT1/cmtt/m/n/10 ## Processing gene expression data (imputation, residualizat
+ion, etc.)[] 
+ []
+
+
+Overfull \hbox (55.73264pt too wide) in paragraph at lines 11494--11494
+[][]\OT1/cmtt/m/it/10 ## NOW COMPARE RESULTS WITH RESULTS OBTAINED ON ORIGINAL 
+ER-POSITIVE DATASET[][] 
+ []
+
+
+Overfull \hbox (977.98846pt too wide) in paragraph at lines 11571--11571
+[][]\OT1/cmtt/m/n/10 plot[][](brc.c[,[][]"t.stat.x"[][]],brc.c[,[][]"t.stat.y"[
+][]],[][]xlab[][]=[][]"T-Stat Meta-Dataset, ER-Pos IBC"[][],[][]ylab[][]=[][]"T
+-stat McGill Dataset, ER-Pos IBC"[][],[][]main[][]=[][]"Epi-Stroma Coexpression
+ T-Statistics, 981/1142 (86%) significant edges with concordant direction, Cor 
+= 0.44"[][],[][]cex.main[][]=[][]0.7[][])[][] 
+ []
+
+[34 <D:/newDropbox/Dropbox/esnet/figure/Figure_4__Analysis_of_SANTA_Results-10.
+pdf>] [35]
+<figure/Park_Validation_Analysis-1.pdf, id=247, 505.89pt x 505.89pt>
+File: figure/Park_Validation_Analysis-1.pdf Graphic file (type pdf)
+
+<use figure/Park_Validation_Analysis-1.pdf>
+Package pdftex.def Info: figure/Park_Validation_Analysis-1.pdf used on input li
+ne 11574.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11574--11575
+[][] 
+ []
+
+[36]
+Overfull \hbox (489.74272pt too wide) in paragraph at lines 11743--11743
+[]  []\OT1/cmtt/m/n/10 ,[][]names[][]=[][]c[][]([][]"-log(fdr) > 5"[][],[][]"5 
+> -log(FDR) > 3"[][],[][]"3 > -log(FDR)"[][]),[][]ylim[][]=[][]c[][]([][]0[][],
+[][]0.2[][]),[][]main[][]=[][]"Proportion of Self-Loops and Edge Strength in Mc
+Gill Dataset"[][],[][]cex.names[][]=[][].5[][])[][] 
+ []
+
+[37 <D:/newDropbox/Dropbox/esnet/figure/Park_Validation_Analysis-1.pdf>]
+Underfull \vbox (badness 10000) detected at line 11745
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11745
+ []
+
+[38]
+Underfull \vbox (badness 10000) detected at line 11745
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11745
+ []
+
+[39]
+Underfull \vbox (badness 10000) detected at line 11745
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11745
+ []
+
+[40] <figure/Park_Validation_Analysis-2.pdf, id=270, 505.89pt x 505.89pt>
+File: figure/Park_Validation_Analysis-2.pdf Graphic file (type pdf)
+
+<use figure/Park_Validation_Analysis-2.pdf>
+Package pdftex.def Info: figure/Park_Validation_Analysis-2.pdf used on input li
+ne 11746.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11746--11747
+[][] 
+ []
+
+[41 <D:/newDropbox/Dropbox/esnet/figure/Park_Validation_Analysis-2.pdf>]
+[42]
+Package color Info: Redefining color shadecolor on input line 11835.
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 11837--11837
+[][]\OT1/cmtt/m/n/10 cDir[][]=[] []https://raw.githubusercontent.com/becklab/e
+snet/master/Cancer.HPA.txt[][] 
+ []
+
+
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 11838--11838
+[][]\OT1/cmtt/m/n/10 nDir[] []=[] []https://raw.githubusercontent.com/becklab/
+esnet/master/Normal.HPA.txt[][] 
+ []
+
+
+Overfull \hbox (27.49681pt too wide) in paragraph at lines 11840--11840
+[][]\OT1/cmtt/m/n/10 ca[] []<-[] []read.table[][]([][]textConnection[][](my_dat
+a),[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"[][],[][]header[][]=T,
+[][]row.names[][]=[][]1[][])[][] 
+ []
+
+
+Overfull \hbox (37.99672pt too wide) in paragraph at lines 11842--11842
+[][]\OT1/cmtt/m/n/10 norm[] []<-[] []read.table[][]([][]textConnection[][](my_d
+ata),[][]sep[][]=[][]"\OMS/cmsy/m/n/10 n\OT1/cmtt/m/n/10 t"[][],[][]header[][]=
+T,[][]row.names[][]=[][]1[][])[][] 
+ []
+
+
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 11864--11864
+[][]\OT1/cmtt/m/n/10 epi.rat.no[][]=[][]norm[,[][]"Brown.Spots.in.Epithelium"[]
+[]][][]/[][]norm[,[][]"Epithelium.pixels"[][]][][] 
+ []
+
+
+Overfull \hbox (53.99652pt too wide) in paragraph at lines 11867--11867
+[][]\OT1/cmtt/m/n/10 epi.rat.sl[][]=[][]ca.sl[,[][]"Brown.Spots.in.Epithelium"[
+][]][][]/[][]ca.sl[,[][]"Epithelium.pixels"[]  []][][] 
+ []
+
+
+Overfull \hbox (69.74638pt too wide) in paragraph at lines 11868--11868
+[][]\OT1/cmtt/m/n/10 epi.rat.nsl[][]=[][]ca.nsl[,[][]"Brown.Spots.in.Epithelium
+"[][]][][]/[][]ca.nsl[,[][]"Epithelium.pixels"[]  []][][] 
+ []
+
+
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 11870--11870
+[][]\OT1/cmtt/m/n/10 str.rat.sl[][]=[][]ca.sl[,[][]"Brown.Spots.in.Stroma"[][]]
+[][]/[][]ca.sl[,[][]"Stroma.pixels"[]  []][][] 
+ []
+
+
+Overfull \hbox (27.74675pt too wide) in paragraph at lines 11871--11871
+[][]\OT1/cmtt/m/n/10 str.rat.nsl[][]=[][]ca.nsl[,[][]"Brown.Spots.in.Stroma"[][
+]][][]/[][]ca.nsl[,[][]"Stroma.pixels"[]  []][][] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 11873--11873
+[][]\OT1/cmtt/m/n/10 epi.n.b[][]=[][]Mclust[][](epi.rat.no[[][]![][]is.na[][](e
+pi.rat.no)[] []& ![][]is.na[][](str.rat.no)],[][]G[][]=[][]2[][])[][]$[][]class
+[][] 
+ []
+
+
+Overfull \hbox (59.24648pt too wide) in paragraph at lines 11874--11874
+[][]\OT1/cmtt/m/n/10 str.n.b[][]=[][]Mclust[][](str.rat.no[[][]![][]is.na[][](e
+pi.rat.no)[] []& ![][]is.na[][](str.rat.no)],[][]G[][]=[][]2[][])[][]$[][]class
+[][] 
+ []
+
+
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 11876--11876
+[][]\OT1/cmtt/m/n/10 epi.nsl.b[][]=[][]Mclust[][](epi.rat.nsl[[][]![][]is.na[][
+](epi.rat.nsl)[] []& ![][]is.na[][](str.rat.nsl)],[][]G[][]=[][]2[][])[][]$[][]
+class[][] 
+ []
+
+
+Overfull \hbox (85.49625pt too wide) in paragraph at lines 11877--11877
+[][]\OT1/cmtt/m/n/10 str.nsl.b[][]=[][]Mclust[][](str.rat.nsl[[][]![][]is.na[][
+](epi.rat.nsl)[] []& ![][]is.na[][](str.rat.nsl)],[][]G[][]=[][]2[][])[][]$[][]
+class[][] 
+ []
+
+
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 11879--11879
+[][]\OT1/cmtt/m/n/10 epi.sl.b[][]=[][]Mclust[][](epi.rat.sl[[][]![][]is.na[][](
+epi.rat.sl)[] []& ![][]is.na[][](str.rat.sl)],[][]G[][]=[][]2[][])[][]$[][]clas
+s[][] 
+ []
+
+
+Overfull \hbox (64.49643pt too wide) in paragraph at lines 11880--11880
+[][]\OT1/cmtt/m/n/10 str.sl.b[][]=[][]Mclust[][](str.rat.sl[[][]![][]is.na[][](
+epi.rat.sl)[] []& ![][]is.na[][](str.rat.sl)],[][]G[][]=[][]2[][])[][]$[][]clas
+s[][] 
+ []
+
+
+Overfull \hbox (195.74529pt too wide) in paragraph at lines 11882--11882
+[][]\OT1/cmtt/m/n/10 x[][]=[][]c[][]([][]sum[][](epi.n.b[][]==[][]2[] []&[] []s
+tr.n.b[] []==[] []2[][]),[][]sum[][](epi.nsl.b[][]==[][]2[] []&[] []str.nsl.b[]
+ []==[] []2[][]),[][]sum[][](epi.sl.b[][]==[][]2[] []&[] []str.sl.b[] []==[] []
+2[][]))[][] 
+ []
+
+
+Overfull \hbox (741.74052pt too wide) in paragraph at lines 11900--11900
+[] []\OT1/cmtt/m/n/10 barplot[][](p1[][]$[][]estimate,[][]beside[][]=T,[][]name
+s[][]=[][]c[][]([][]"Normal"[][],[][]"Cancer-Non-SL"[][],[][]"Cancer-SL"[][]),[
+][]main[][]=[][]"Figure 7. Self-loops in the Human Protein Atlas"[][],[][]ylab[
+][]=[][]"Proportion of Images with Co-Expression"[][],[][]col[][]=[][]c[][]([][
+]"blue"[][],[][]"orange"[][],[][]"red"[][]))[][] 
+ []
+
+[43]
+<figure/Figure_7__Validation_Analysis_using_Data_from_the_Human_Protein_Atlas-1
+.pdf, id=287, 505.89pt x 505.89pt>
+File: figure/Figure_7__Validation_Analysis_using_Data_from_the_Human_Protein_At
+las-1.pdf Graphic file (type pdf)
+
+<use figure/Figure_7__Validation_Analysis_using_Data_from_the_Human_Protein_Atl
+as-1.pdf>
+Package pdftex.def Info: figure/Figure_7__Validation_Analysis_using_Data_from_t
+he_Human_Protein_Atlas-1.pdf used on input line 11903.
+(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 11903--11904
+[][] 
+ []
+
+[44]
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 11905--11905
+[][]\OT1/cmtt/m/n/10 x[][]=[][]c[][]([][]sum[][](epi.n.b[][]==[][]2[] []&[] []s
+tr.n.b[] []==[] []2[][]),[][]sum[][](epi.sl.b[][]==[][]2[] []&[] []str.sl.b[] [
+]==[] []2[][]))[][] 
+ []
+
+
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 11925--11925
+[][]\OT1/cmtt/m/n/10 x[][]=[][]c[][]([][]sum[][](epi.nsl.b[][]==[][]2[] []&[] [
+]str.nsl.b[] []==[] []2[][]),[][]sum[][](epi.sl.b[][]==[][]2[] []&[] []str.sl.b
+[] []==[] []2[][]))[][] 
+ []
+
+[45 <D:/newDropbox/Dropbox/esnet/figure/Figure_7__Validation_Analysis_using_Dat
+a_from_the_Human_Protein_Atlas-1.pdf>] [46]
+(D:\newDropbox\Dropbox\esnet\analysis.aux) ) 
+Here is how much of TeX's memory you used:
+ 1403 strings out of 493921
+ 22003 string characters out of 3147279
+ 1142489 words of memory out of 3000000
+ 4694 multiletter control sequences out of 15000+200000
+ 7616 words of font info for 28 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,6n,21p,1213b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmitt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on analysis.pdf (46 pages, 687859 bytes).
+PDF statistics:
+ 328 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+
