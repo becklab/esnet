@@ -1,0 +1,43 @@
+,,,Benign breast tissue,,,Invasive ductal carcinoma,,,,
+Gene,,Antibody ID,n,Pos,Comment,n,Pos ES,only E or S,Neg,Comment
+UGT2B28,,HPA045108,3,0,,9,0,0,9 (100%),
+COCH,,HPA050122,2,2E,weak,8,0,0,8 (100%),
+SLPI,,CAB002303,3,0,,8,0,0,8 (100%),
+SULT4A1,,HPA003129,2,0,,8,0,0,8 (100%),
+VGLL1,,HPA042403,2,0,,8,0,0,8 (100%),
+MYBPC1,,HPA021004,3,1E,weak ,9,0,1E (11%),8 (89%),
+KRT5,,CAB000129,3,2E,,9,0,1E (11%),8 (89%),E(weak)
+S100A14,,HPA027613,0,0,,9,0,9E (100%),0,
+CLDN8,,HPA060605,3,3E,,5,0,5E (100%),0,
+S100A2,,CAB002600,0,0,,8,1 (12.5 %),7S (87.5%),0,
+S100A8,,HPA024372,3,3S,focal,10,2 (20 %),"2E, 2S (40%)",4 (40%),ES (mod)
+S100A7,,CAB033766,2,0,,9,2 (22 %),2E (22%),5 (56%),"E(focal to diffuse, strong), S(weak)"
+IFI6,,HPA005543,0,0,,8,2 (25%),4E (50%),2 (25%),ES(rare)
+CXCL13,,HPA052613,3,3EE,,9,3 (33%),6E (67%),0,ES(weak); S-predominantly endothelium and focal spindle cells
+NME5,,HPA044555,2,2E,weak,8,3 (37.5%),2E (25%),3 (37.5%),
+S100P,,HPA019502,3,0,,8,4 (50%),3E (37.5%),1 (12.5%),
+NDRG2,,CAB017491,2,2ES,,5,5 (100%),0,0,
+IFIT1,,HPA055380,2,2EE,,8,6 (75%),2S (25%),0,ES(mod); S-predominantly endothelium and focal spindle cells
+TOM1L1,,HPA022916,2,2E,,7,6 (86%),1S (14%),0,
+DSC3,,HPA049265,2,2E,,9,7 (78%),0,2 (12%),ES(weak)
+SCGB2A2,,HPA036184,2,2EE,,9,7 (78%),2S (12%),0,ES(mod); S-predominantly endothelium and focal spindle cells
+PDE4DIP,,HPA012678,2,1E,,9,7 (78%),2E (12%),0,
+ISG15,,HPA004627,1,1S,weak,9,7 (78%),2S (12%),0,
+SLC7A5,,HPA052673,3,3EE,,8,8 (100%),0,0,
+MX1,,HPA030917,2,2EE,,8,8 (100%),0,0,
+SERPINA1,,CAB073396,3,3ES,,8,8 (100%),0,0,
+CKS1B,,HPA030762,2,2ES,,8,8 (100%),0,0,
+CRABP1,,HPA017203,3,2ES,,8,8 (100%),0,0,
+ORM1,,HPA046438,1,1E,,10,9 (90%),1E (10%),0,Stronger staining at the epi-stromal interface
+SERPINB5,,HPA020136,2,2ES,"E(weak to mod), S(strong)",10,9 (90%),1S (10%),0,Stronger staining at the epi-stromal interface
+PSMD3,,CAB017038,3,3EE,weak,9,9 (100%),0,0,
+BIRC5,,HPA002830,2,2ES,,9,9 (100%),0,0,
+C6orf108,,HPA029675,2,2ES,"E(mod), S(rare, weak)",9,9 (100%),0,0,
+TXNL4A,,Unavailable,n/a,n/a,n/a,n/a,n/a,n/a,n/a,
+COL2A1,,CAB002214,2,0,,n/a,n/a,n/a,n/a,
+ODAM,,Unavailable,n/a,n/a,n/a,n/a,n/a,n/a,n/a,
+HCP5,,Unavailable,n/a,n/a,n/a,n/a,n/a,n/a,n/a,
+DIO1,,Unavailable,n/a,n/a,n/a,n/a,n/a,n/a,n/a,
+,,,,,,,,,,
+E-epithelium,,,EE -epithelium and endothelial cells,,,,ES - epithelium and stroma,,,S-stroma
+mod- moderate,,,,,,,,,,
